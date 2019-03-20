@@ -1,7 +1,7 @@
 const assert = require('assert')
 const getBuyEthUrl = require('../../../app/scripts/lib/buy-eth-url')
 
-describe.only('Buy Eth Url', function () {
+describe('Buy Eth Url', function () {
   const mainnet = {
     network: '1',
     amount: 5,
@@ -18,8 +18,8 @@ describe.only('Buy Eth Url', function () {
   }
 
   it('returns coinbase url with amount and address for network 1', function () {
-    const coinbaseUrl = getBuyEthUrl(mainnet)
-    const coinbase = coinbaseUrl.match(/(https:\/\/dash.sendwyre.com\/sign-up)/)
+    const buyEthUrl = getBuyEthUrl(mainnet)
+    assert.equal(buyEthUrl, 'https://dash.sendwyre.com/sign-up')
   })
 
   it('returns metamask ropsten faucet for network 3', function () {
